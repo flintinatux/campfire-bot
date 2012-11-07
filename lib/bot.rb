@@ -168,7 +168,10 @@ module CampfireBot
         end
       when "TimestampMessage", "AdvertisementMessage"
         return
-      when "TextMessage", "PasteMessage", "EnterMessage"
+      when "EnterMessage"
+        message.speak "Hey #{message[:person].split.first}, welcome back!"
+        return
+      when "TextMessage", "PasteMessage"
         # only process non-bot messages
         unless message[:user][:id] == @campfire.me[:id]
           @log.info "#{message[:person]} | #{message[:message]}"
