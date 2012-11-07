@@ -1,7 +1,7 @@
 class Echo < CampfireBot::Plugin
   on_command 'say', :say
   on_command 'echo', :say
-  on_message %r[hea(d|ded|ding|din') out], :goodbye
+  on_message %r[hea(d|ded|ding|din') out]i, :goodbye
 
   def initialize
     @log = Logging.logger["CampfireBot::Plugin::Echo"]
